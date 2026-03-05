@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: 0 0 0;
+  --background: 255 255 255;
+  --surface: 249 249 249;
+  --text: 10 10 10;
+  --border: 230 230 230;
+}
+
+.dark {
+  --primary: 255 255 255;
+  --background: 10 10 10;
+  --surface: 20 20 20;
+  --text: 245 245 245;
+  --border: 40 40 40;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-text font-sans antialiased;
+    letter-spacing: -0.01em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-medium tracking-tight;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-background px-3 py-1.5 rounded-md font-medium hover:opacity-90 transition-all disabled:opacity-50 active:scale-[0.98] text-xs;
+  }
+
+  .card {
+    @apply bg-surface border rounded-md p-3;
+    border-color: rgb(var(--border));
+  }
+
+  .input-field {
+    @apply bg-background border rounded px-2.5 py-1 text-xs outline-none focus:ring-1 focus:ring-primary/20 transition-all;
+    border-color: rgb(var(--border));
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(var(--primary) / 0.2);
+  @apply rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(var(--primary) / 0.4);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
